@@ -1,6 +1,6 @@
 #if _LINUX
 
-namespace CrossPlatformApp.Linux;
+namespace Typo.Linux;
 
 using System;
 using System.Runtime.InteropServices;

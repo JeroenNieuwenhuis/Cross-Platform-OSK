@@ -1,7 +1,8 @@
 ﻿using Avalonia;
 using System;
+using Typo;
 
-namespace CrossPlatformApp;
+namespace Typo;
 
 class Program
 {

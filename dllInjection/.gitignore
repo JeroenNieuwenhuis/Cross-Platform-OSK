@@ -1,0 +1,42 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Dd]ebug*/
+[Rr]elease*/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Bb]uild/
+
+# Visual Studio files
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Compiler/Linker output
+*.exe
+*.dll
+*.lib
+*.app
+*.pdb
+*.ilk
+*.obj
+*.pch
+*.idb
+
+# Other generated files
+*.ipch
+*.iobj
+*.ipdb
+*.cache
+*.log
+
+# CMake (if used)
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile

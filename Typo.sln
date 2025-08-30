@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossPlatformApp", "CrossPlatformApp.csproj", "{3043000A-873E-4A85-B88E-CA66237649B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typo", "Typo.csproj", "{3043000A-873E-4A85-B88E-CA66237649B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

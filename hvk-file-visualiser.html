@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexagon Keyboard Visualizer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #2a4d69);
+            color: #e0e7ff;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 15, 46, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(92, 131, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #c2e9fb;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+        }
+        
+        .keyboard-container {
+            background: rgba(0, 15, 46, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(92, 131, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .canvas-wrapper {
+            background: rgba(0, 20, 40, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            overflow: auto;
+        }
+        
+        canvas {
+            background: #0a192f;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #001a33;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+        
+        .info-panel {
+            background: rgba(0, 15, 46, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(92, 131, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .panel-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #a1c4fd;
+            text-align: center;
+        }
+        
+        .key-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .key-info {
+            background: rgba(10, 25, 47, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(92, 131, 255, 0.2);
+        }
+        
+        .key-title {
+            font-weight: 600;
+            color: #4facfe;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .key-title::before {
+            content: "■";
+            color: #00f2fe;
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .key-details {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #c2e9fb;
+        }
+        
+        .highlight {
+            background: rgba(79, 172, 254, 0.2);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #a1c4fd;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .key-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hexagon Keyboard Visualizer</h1>
+            <p class="subtitle">This visualization shows the custom on-screen keyboard with hexagon-shaped keys based on the provided configuration data. Hover over keys to see details.</p>
+        </header>
+        
+        <div class="keyboard-container">
+            <div class="canvas-wrapper">
+                <canvas id="keyboardCanvas" width="523" height="145"></canvas>
+            </div>
+            
+            <div class="controls">
+                <button id="drawBtn">Draw Keyboard</button>
+                <button id="highlightBtn">Highlight Special Keys</button>
+                <button id="resetBtn">Reset View</button>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <h2 class="panel-title">Keyboard Information</h2>
+            <div class="key-info-grid">
+                <div class="key-info">
+                    <h3 class="key-title">Keyboard Specifications</h3>
+                    <p class="key-details">Total dimensions: <span class="highlight">523×145 pixels</span></p>
+                    <p class="key-details">Key count: <span class="highlight">71 keys</span> (63 hexagons, 8 rectangles)</p>
+                    <p class="key-details">Default aspect ratio: <span class="highlight">Locked</span></p>
+                </div>
+                
+                <div class="key-info">
+                    <h3 class="key-title">Key Types</h3>
+                    <p class="key-details">Alphanumeric keys: <span class="highlight">A-Z, 0-9</span></p>
+                    <p class="key-details">Special keys: <span class="highlight">Space, Enter, Tab, Esc</span></p>
+                    <p class="key-details">Custom keys: <span class="highlight">Mouse buttons, Quick Access</span></p>
+                </div>
+                
+                <div class="key-info">
+                    <h3 class="key-title">Technical Details</h3>
+                    <p class="key-details">Each hexagon defined by <span class="highlight">7 points</span> (6 vertices + start point)</p>
+                    <p class="key-details">Rectangular keys defined by <span class="highlight">2 points</span> (top-left & bottom-right)</p>
+                    <p class="key-details">Custom images for special function keys</p>
+                </div>
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #4facfe;"></div>
+                    <span>Alphanumeric Keys</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #00f2fe;"></div>
+                    <span>Special Keys</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ff6b6b;"></div>
+                    <span>Mouse & Quick Access</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ffd166;"></div>
+                    <span>Highlighted Key</span>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Created with JavaScript Canvas | Hexagon Keyboard Visualization</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('keyboardCanvas');
+            const ctx = canvas.getContext('2d');
+            const drawBtn = document.getElementById('drawBtn');
+            const highlightBtn = document.getElementById('highlightBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            
+            // Keyboard data from the provided format
+            const keyboardData = `
+8=315,90;330,83;346,90;346,108;330,115;315,108;315,90
+9=18,36;33,29;49,36;49,54;33,61;18,54;18,36
+13=331,117;346,110;362,117;362,135;346,142;331,135;331,117
+20=1,63;16,56;32,63;32,81;16,88;1,81;1,63
+27=1,9;16,2;32,9;32,27;16,34;1,27;1,9
+32=232,63;247,56;263,63;263,81;247,88;232,81;232,63
+33=430,63;445,56;461,63;461,81;445,88;430,81;430,63
+34=447,90;462,83;478,90;478,108;462,115;447,108;447,90
+35=413,36;428,29;444,36;444,54;428,61;413,54;413,36
+36=397,9;412,2;428,9;428,27;412,34;397,27;397,9
+37=348,90;363,83;379,90;379,108;363,115;348,108;348,90
+38=364,63;379,56;395,63;395,81;379,88;364,81;364,63
+39=381,90;396,83;412,90;412,108;396,115;381,108;381,90
+40=364,117;379,110;395,117;395,135;379,142;364,135;364,117
+44=502,59;518,75
+46=298,117;313,110;329,117;329,135;313,142;298,135;298,117
+48=18,90;33,83;49,90;49,108;33,115;18,108;18,90
+49=67,9;82,2;98,9;98,27;82,34;67,27;67,9
+50=100,9;115,2;131,9;131,27;115,34;100,27;100,9
+51=133,9;148,2;164,9;164,27;148,34;133,27;133,9
+52=51,36;66,29;82,36;82,54;66,61;51,54;51,36
+53=84,36;99,29;115,36;115,54;99,61;84,54;84,36
+54=117,36;132,29;148,36;148,54;132,61;117,54;117,36
+55=34,63;49,56;65,63;65,81;49,88;34,81;34,63
+56=67,63;82,56;98,63;98,81;82,88;67,81;67,63
+57=100,63;115,56;131,63;131,81;115,88;100,81;100,63
+65=249,90;264,83;280,90;280,108;264,115;249,108;249,90
+66=331,63;346,56;362,63;362,81;346,88;331,81;331,63
+67=150,36;165,29;181,36;181,54;165,61;150,54;150,36
+68=282,90;297,83;313,90;313,108;297,115;282,108;282,90
+69=199,63;214,56;230,63;230,81;214,88;199,81;199,63
+70=282,36;297,29;313,36;313,54;297,61;282,54;282,36
+71=298,63;313,56;329,63;329,81;313,88;298,81;298,63
+72=183,36;198,29;214,36;214,54;198,61;183,54;183,36
+73=166,63;181,56;197,63;197,81;181,88;166,81;166,63
+74=133,63;148,56;164,63;164,81;148,88;133,81;133,63
+75=166,9;181,2;197,9;197,27;181,34;166,27;166,9
+76=232,117;247,110;263,117;263,135;247,142;232,135;232,117
+77=232,9;247,2;263,9;263,27;247,34;232,27;232,9
+78=265,63;280,56;296,63;296,81;280,88;265,81;265,63
+79=249,36;264,29;280,36;280,54;264,61;249,54;249,36
+80=199,117;214,110;230,117;230,135;214,142;199,135;199,117
+81=298,9;313,2;329,9;329,27;313,34;298,27;298,9
+82=183,90;198,83;214,90;214,108;198,115;183,108;183,90
+83=216,90;231,83;247,90;247,108;231,115;216,108;216,90
+84=216,36;231,29;247,36;247,54;231,61;216,54;216,36
+85=265,9;280,2;296,9;296,27;280,34;265,27;265,9
+86=150,90;165,83;181,90;181,108;165,115;150,108;150,90
+87=199,9;214,2;230,9;230,27;214,34;199,27;199,9
+88=166,117;181,110;197,117;197,135;181,142;166,135;166,117
+89=265,117;280,110;296,117;296,135;280,142;265,135;265,117
+90=315,36;330,29;346,36;346,54;330,61;315,54;315,36
+91=100,117;115,110;131,117;131,135;115,142;100,135;100,117
+93=430,117;445,110;461,117;461,135;445,142;430,135;430,117
+160=133,117;148,110;164,117;164,135;148,142;133,135;133,117
+162=67,117;82,110;98,117;98,135;82,142;67,135;67,117
+165=397,117;412,110;428,117;428,135;412,142;397,135;397,117
+182=462,116;477,109;493,116;493,134;477,141;462,134;462,116;pic:C:\Users\jeroe\OneDrive\Projects\HVK Keyboards\steamdeck_button_quickaccess_outline.png;pictr:1;picbk:0;picdb:1;picrs:0;picfw:0;picfh:1
+183=446,36;461,29;477,36;477,54;461,61;446,54;446,36;pic:C:\Users\jeroe\OneDrive\Projects\HVK Keyboards\mouse_right_outline.png;pictr:0;picbk:0;picdb:1;picrs:0;picfw:1;picfh:1
+186=51,90;66,83;82,90;82,108;66,115;51,108;51,90
+187=364,9;379,2;395,9;395,27;379,34;364,27;364,9
+188=84,90;99,83;115,90;115,108;99,115;84,108;84,90
+189=331,9;346,2;362,9;362,27;346,34;331,27;331,9
+190=117,90;132,83;148,90;148,108;132,115;117,108;117,90
+191=397,63;412,56;428,63;428,81;412,88;397,81;397,63
+192=34,9;49,2;65,9;65,27;49,34;34,27;34,9
+195=486,2;518,24
+196=502,43;518,59
+197=463,63;478,56;494,63;494,81;478,88;463,81;463,63;label: ;pic:C:\Users\jeroe\OneDrive\Projects\HVK Keyboards\mouse_left_outline.png;pictr:0;picbk:0;picdb:1;picrs:0;picfw:1;picfh:1
+198=502,27;518,43
+219=348,36;363,29;379,36;379,54;363,61;348,54;348,36
+220=414,90;429,83;445,90;445,108;429,115;414,108;414,90
+221=381,36;396,29;412,36;412,54;396,61;381,54;381,36
+222=34,117;49,110;65,117;65,135;49,142;34,135;34,117
+232=1,117;16,110;32,117;32,135;16,142;1,135;1,117
+`;
+            
+            // Parse the keyboard data
+            function parseKeyboardData(data) {
+                const keys = [];
+                const lines = data.trim().split('\n');
+                
+                for (const line of lines) {
+                    if (line.includes('=')) {
+                        const [keyCode, value] = line.split('=');
+                        const points = [];
+                        const properties = {};
+                        
+                        // Split the value into parts
+                        const parts = value.split(';');
+                        
+                        // Extract points (until we hit a property)
+                        for (let i = 0; i < parts.length; i++) {
+                            const part = parts[i];
+                            if (part.includes(',')) {
+                                const [x, y] = part.split(',').map(Number);
+                                points.push({x, y});
+                            } else if (part.includes(':')) {
+                                // Handle properties
+                                const [prop, val] = part.split(':');
+                                properties[prop] = val;
+                            }
+                        }
+                        
+                        keys.push({
+                            code: keyCode,
+                            points,
+                            properties
+                        });
+                    }
+                }
+                
+                return keys;
+            }
+            
+            const keyboardKeys = parseKeyboardData(keyboardData);
+            let highlightedKey = null;
+            
+            // Draw the keyboard
+            function drawKeyboard(highlightSpecial = false) {
+                // Clear canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw background
+                ctx.fillStyle = '#0a192f';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw each key
+                keyboardKeys.forEach(key => {
+                    ctx.beginPath();
+                    
+                    // Determine key color based on type
+                    let color = '#4facfe'; // Default color (alphanumeric)
+                    
+                    if (key.code === '32') {
+                        color = '#00f2fe'; // Space bar
+                    } else if (['13', '27', '9'].includes(key.code)) {
+                        color = '#00f2fe'; // Enter, Esc, Tab
+                    } else if (key.properties.pic) {
+                        color = '#ff6b6b'; // Keys with custom images
+                    } else if (key.points.length === 2) {
+                        color = '#4facfe'; // Rectangular keys
+                    }
+                    
+                    // Highlight special keys if requested
+                    if (highlightSpecial && (color === '#00f2fe' || color === '#ff6b6b')) {
+                        color = '#ffd166';
+                    }
+                    
+                    // Draw the key shape
+                    if (key.points.length > 2) {
+                        // Hexagon keys (7 points)
+                        ctx.moveTo(key.points[0].x, key.points[0].y);
+                        for (let i = 1; i < key.points.length; i++) {
+                            ctx.lineTo(key.points[i].x, key.points[i].y);
+                        }
+                    } else if (key.points.length === 2) {
+                        // Rectangle keys (2 points)
+                        const [p1, p2] = key.points;
+                        ctx.rect(p1.x, p1.y, p2.x - p1.x, p2.y - p1.y);
+                    }
+                    
+                    ctx.closePath();
+                    
+                    // Style the key
+                    ctx.fillStyle = color + '80'; // 80 = 50% opacity
+                    ctx.strokeStyle = '#e0e7ff';
+                    ctx.lineWidth = 1;
+                    ctx.fill();
+                    ctx.stroke();
+                    
+                    // Draw key code in the center
+                    if (key.points.length > 0) {
+                        const center = {x: 0, y: 0};
+                        key.points.forEach(point => {
+                            center.x += point.x;
+                            center.y += point.y;
+                        });
+                        center.x /= key.points.length;
+                        center.y /= key.points.length;
+                        
+                        ctx.fillStyle = '#e0e7ff';
+                        ctx.font = '9px Arial';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText(key.code, center.x, center.y);
+                    }
+                });
+            }
+            
+            // Find key at coordinates
+            function findKeyAt(x, y) {
+                for (const key of keyboardKeys) {
+                    if (isPointInKey(x, y, key)) {
+                        return key;
+                    }
+                }
+                return null;
+            }
+            
+            // Check if point is inside a key
+            function isPointInKey(x, y, key) {
+                if (key.points.length === 2) {
+                    // Rectangle check
+                    const [p1, p2] = key.points;
+                    return x >= p1.x && x <= p2.x && y >= p1.y && y <= p2.y;
+                } else if (key.points.length > 2) {
+                    // Hexagon check using ray-casting algorithm
+                    let inside = false;
+                    for (let i = 0, j = key.points.length - 1; i < key.points.length; j = i++) {
+                        const xi = key.points[i].x, yi = key.points[i].y;
+                        const xj = key.points[j].x, yj = key.points[j].y;
+                        
+                        const intersect = ((yi > y) !== (yj > y)) &&
+                            (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+                        if (intersect) inside = !inside;
+                    }
+                    return inside;
+                }
+                return false;
+            }
+            
+            // Highlight a specific key
+            function highlightKey(key) {
+                if (!key) return;
+                
+                // Redraw the keyboard
+                drawKeyboard();
+                
+                // Highlight the selected key
+                ctx.beginPath();
+                
+                if (key.points.length > 2) {
+                    ctx.moveTo(key.points[0].x, key.points[0].y);
+                    for (let i = 1; i < key.points.length; i++) {
+                        ctx.lineTo(key.points[i].x, key.points[i].y);
+                    }
+                } else if (key.points.length === 2) {
+                    const [p1, p2] = key.points;
+                    ctx.rect(p1.x, p1.y, p2.x - p1.x, p2.y - p1.y);
+                }
+                
+                ctx.closePath();
+                
+                ctx.fillStyle = '#ffd16680';
+                ctx.strokeStyle = '#ffd166';
+                ctx.lineWidth = 2;
+                ctx.fill();
+                ctx.stroke();
+                
+                // Draw key details in the center
+                const center = {x: 0, y: 0};
+                key.points.forEach(point => {
+                    center.x += point.x;
+                    center.y += point.y;
+                });
+                center.x /= key.points.length;
+                center.y /= key.points.length;
+                
+                ctx.fillStyle = '#001a33';
+                ctx.font = 'bold 10px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(`Key ${key.code}`, center.x, center.y);
+                
+                // Display key info
+                let keyType = "Alphanumeric Key";
+                if (key.properties.pic) {
+                    const imgName = key.properties.pic.split('\\').pop();
+                    keyType = `Special Key (${imgName.replace('.png', '')})`;
+                } else if (['32', '13', '27', '9'].includes(key.code)) {
+                    const keyNames = {
+                        '32': 'Space', 
+                        '13': 'Enter', 
+                        '27': 'Escape', 
+                        '9': 'Tab'
+                    };
+                    keyType = `Special Key (${keyNames[key.code]})`;
+                }
+                
+                const keyInfo = document.createElement('div');
+                keyInfo.className = 'key-info';
+                keyInfo.innerHTML = `
+                    <h3 class="key-title">Key ${key.code}: ${keyType}</h3>
+                    <p class="key-details">Points: ${key.points.length}</p>
+                    ${key.properties.pic ? 
+                        `<p class="key-details">Image: ${key.properties.pic.split('\\').pop()}</p>` : ''}
+                `;
+                
+                // Update the info panel
+                document.querySelector('.key-info-grid').prepend(keyInfo);
+            }
+            
+            // Event listeners
+            drawBtn.addEventListener('click', () => {
+                drawKeyboard();
+                highlightedKey = null;
+            });
+            
+            highlightBtn.addEventListener('click', () => {
+                drawKeyboard(true);
+            });
+            
+            resetBtn.addEventListener('click', () => {
+                drawKeyboard();
+                highlightedKey = null;
+                // Clear dynamically added key info
+                const keyInfos = document.querySelectorAll('.key-info');
+                if (keyInfos.length > 3) {
+                    for (let i = 3; i < keyInfos.length; i++) {
+                        keyInfos[i].remove();
+                    }
+                }
+            });
+            
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const key = findKeyAt(x, y);
+                if (key && key !== highlightedKey) {
+                    highlightedKey = key;
+                    highlightKey(key);
+                }
+            });
+            
+            // Initial draw
+            drawKeyboard();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2542 @@
+{
+  "layouts": [
+    {
+      "name": "Default",
+      "uiAccesDllInjection": false,
+      "keyboards": [
+        {
+          "name": "Default",
+          "transparency": 0,
+          "_width": 523.0,
+          "_height": 145.0,
+          "backgroundColor": "#00272626",
+          "keyArgbBorderColor": "#ffaaaaaa",
+          "keyArgbBackgroundColor": "#88474747",
+          "keyArgbHoverColor": "#afa0a0a0",
+          "keyArgbHoverClickColor": "#afffffff",
+          "keys":  [
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_BACKSPACE"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 315,
+                  "y": 90
+                },
+                {
+                  "x": 330,
+                  "y": 83
+                },
+                {
+                  "x": 346,
+                  "y": 90
+                },
+                {
+                  "x": 346,
+                  "y": 108
+                },
+                {
+                  "x": 330,
+                  "y": 115
+                },
+                {
+                  "x": 315,
+                  "y": 108
+                }
+              ],
+              "text": "Back"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_TAB"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 18,
+                  "y": 36
+                },
+                {
+                  "x": 33,
+                  "y": 29
+                },
+                {
+                  "x": 49,
+                  "y": 36
+                },
+                {
+                  "x": 49,
+                  "y": 54
+                },
+                {
+                  "x": 33,
+                  "y": 61
+                },
+                {
+                  "x": 18,
+                  "y": 54
+                }
+              ],
+              "text": "Tab"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_ENTER"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 331,
+                  "y": 117
+                },
+                {
+                  "x": 346,
+                  "y": 110
+                },
+                {
+                  "x": 362,
+                  "y": 117
+                },
+                {
+                  "x": 362,
+                  "y": 135
+                },
+                {
+                  "x": 346,
+                  "y": 142
+                },
+                {
+                  "x": 331,
+                  "y": 135
+                }
+              ],
+              "text": "Ent"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_CAPS_LOCK"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 1,
+                  "y": 63
+                },
+                {
+                  "x": 16,
+                  "y": 56
+                },
+                {
+                  "x": 32,
+                  "y": 63
+                },
+                {
+                  "x": 32,
+                  "y": 81
+                },
+                {
+                  "x": 16,
+                  "y": 88
+                },
+                {
+                  "x": 1,
+                  "y": 81
+                }
+              ],
+              "text": "Cap"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_ESCAPE"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 1,
+                  "y": 9
+                },
+                {
+                  "x": 16,
+                  "y": 2
+                },
+                {
+                  "x": 32,
+                  "y": 9
+                },
+                {
+                  "x": 32,
+                  "y": 27
+                },
+                {
+                  "x": 16,
+                  "y": 34
+                },
+                {
+                  "x": 1,
+                  "y": 27
+                }
+              ],
+              "text": "Esc"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_SPACE"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 232,
+                  "y": 63
+                },
+                {
+                  "x": 247,
+                  "y": 56
+                },
+                {
+                  "x": 263,
+                  "y": 63
+                },
+                {
+                  "x": 263,
+                  "y": 81
+                },
+                {
+                  "x": 247,
+                  "y": 88
+                },
+                {
+                  "x": 232,
+                  "y": 81
+                }
+              ],
+              "text": " "
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_PAGE_UP"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 430,
+                  "y": 63
+                },
+                {
+                  "x": 445,
+                  "y": 56
+                },
+                {
+                  "x": 461,
+                  "y": 63
+                },
+                {
+                  "x": 461,
+                  "y": 81
+                },
+                {
+                  "x": 445,
+                  "y": 88
+                },
+                {
+                  "x": 430,
+                  "y": 81
+                }
+              ],
+              "text": "PgUp"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_PAGE_DOWN"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 447,
+                  "y": 90
+                },
+                {
+                  "x": 462,
+                  "y": 83
+                },
+                {
+                  "x": 478,
+                  "y": 90
+                },
+                {
+                  "x": 478,
+                  "y": 108
+                },
+                {
+                  "x": 462,
+                  "y": 115
+                },
+                {
+                  "x": 447,
+                  "y": 108
+                }
+              ],
+              "text": "PgUp"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_END"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 413,
+                  "y": 36
+                },
+                {
+                  "x": 428,
+                  "y": 29
+                },
+                {
+                  "x": 444,
+                  "y": 36
+                },
+                {
+                  "x": 444,
+                  "y": 54
+                },
+                {
+                  "x": 428,
+                  "y": 61
+                },
+                {
+                  "x": 413,
+                  "y": 54
+                }
+              ],
+              "text": "End"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_HOME"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 397,
+                  "y": 9
+                },
+                {
+                  "x": 412,
+                  "y": 2
+                },
+                {
+                  "x": 428,
+                  "y": 9
+                },
+                {
+                  "x": 428,
+                  "y": 27
+                },
+                {
+                  "x": 412,
+                  "y": 34
+                },
+                {
+                  "x": 397,
+                  "y": 27
+                }
+              ],
+              "text": "Home"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_LEFT"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 348,
+                  "y": 90
+                },
+                {
+                  "x": 363,
+                  "y": 83
+                },
+                {
+                  "x": 379,
+                  "y": 90
+                },
+                {
+                  "x": 379,
+                  "y": 108
+                },
+                {
+                  "x": 363,
+                  "y": 115
+                },
+                {
+                  "x": 348,
+                  "y": 108
+                }
+              ],
+              "text": "Left"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_UP"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 364,
+                  "y": 63
+                },
+                {
+                  "x": 379,
+                  "y": 56
+                },
+                {
+                  "x": 395,
+                  "y": 63
+                },
+                {
+                  "x": 395,
+                  "y": 81
+                },
+                {
+                  "x": 379,
+                  "y": 88
+                },
+                {
+                  "x": 364,
+                  "y": 81
+                }
+              ],
+              "text": "Up"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_RIGHT"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 381,
+                  "y": 90
+                },
+                {
+                  "x": 396,
+                  "y": 83
+                },
+                {
+                  "x": 412,
+                  "y": 90
+                },
+                {
+                  "x": 412,
+                  "y": 108
+                },
+                {
+                  "x": 396,
+                  "y": 115
+                },
+                {
+                  "x": 381,
+                  "y": 108
+                }
+              ],
+              "text": "Right"
+              
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_DOWN"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 364,
+                  "y": 117
+                },
+                {
+                  "x": 379,
+                  "y": 110
+                },
+                {
+                  "x": 395,
+                  "y": 117
+                },
+                {
+                  "x": 395,
+                  "y": 135
+                },
+                {
+                  "x": 379,
+                  "y": 142
+                },
+                {
+                  "x": 364,
+                  "y": 135
+                }
+              ],
+              "text": "Down"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_PRINT"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 502,
+                  "y": 59
+                },
+                {
+                  "x": 518,
+                  "y": 59
+                },
+                {
+                  "x": 518,
+                  "y": 75
+                },
+                {
+                  "x": 502,
+                  "y": 75
+                }
+              ],
+              "text": "Pr"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_DELETE"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 298,
+                  "y": 117
+                },
+                {
+                  "x": 313,
+                  "y": 110
+                },
+                {
+                  "x": 329,
+                  "y": 117
+                },
+                {
+                  "x": 329,
+                  "y": 135
+                },
+                {
+                  "x": 313,
+                  "y": 142
+                },
+                {
+                  "x": 298,
+                  "y": 135
+                }
+              ],
+              "text": "Del"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_0"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 18,
+                  "y": 90
+                },
+                {
+                  "x": 33,
+                  "y": 83
+                },
+                {
+                  "x": 49,
+                  "y": 90
+                },
+                {
+                  "x": 49,
+                  "y": 108
+                },
+                {
+                  "x": 33,
+                  "y": 115
+                },
+                {
+                  "x": 18,
+                  "y": 108
+                }
+              ],
+              "text": "0"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_1"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 67,
+                  "y": 9
+                },
+                {
+                  "x": 82,
+                  "y": 2
+                },
+                {
+                  "x": 98,
+                  "y": 9
+                },
+                {
+                  "x": 98,
+                  "y": 27
+                },
+                {
+                  "x": 82,
+                  "y": 34
+                },
+                {
+                  "x": 67,
+                  "y": 27
+                }
+              ],
+              "text": "1"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_2"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 100,
+                  "y": 9
+                },
+                {
+                  "x": 115,
+                  "y": 2
+                },
+                {
+                  "x": 131,
+                  "y": 9
+                },
+                {
+                  "x": 131,
+                  "y": 27
+                },
+                {
+                  "x": 115,
+                  "y": 34
+                },
+                {
+                  "x": 100,
+                  "y": 27
+                }
+              ],
+              "text": "2"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_3"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 133,
+                  "y": 9
+                },
+                {
+                  "x": 148,
+                  "y": 2
+                },
+                {
+                  "x": 164,
+                  "y": 9
+                },
+                {
+                  "x": 164,
+                  "y": 27
+                },
+                {
+                  "x": 148,
+                  "y": 34
+                },
+                {
+                  "x": 133,
+                  "y": 27
+                }
+              ],
+              "text": "3"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_4"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 51,
+                  "y": 36
+                },
+                {
+                  "x": 66,
+                  "y": 29
+                },
+                {
+                  "x": 82,
+                  "y": 36
+                },
+                {
+                  "x": 82,
+                  "y": 54
+                },
+                {
+                  "x": 66,
+                  "y": 61
+                },
+                {
+                  "x": 51,
+                  "y": 54
+                }
+              ],
+              "text": "4"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_5"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 84,
+                  "y": 36
+                },
+                {
+                  "x": 99,
+                  "y": 29
+                },
+                {
+                  "x": 115,
+                  "y": 36
+                },
+                {
+                  "x": 115,
+                  "y": 54
+                },
+                {
+                  "x": 99,
+                  "y": 61
+                },
+                {
+                  "x": 84,
+                  "y": 54
+                }
+              ],
+              "text": "5"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_6"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 117,
+                  "y": 36
+                },
+                {
+                  "x": 132,
+                  "y": 29
+                },
+                {
+                  "x": 148,
+                  "y": 36
+                },
+                {
+                  "x": 148,
+                  "y": 54
+                },
+                {
+                  "x": 132,
+                  "y": 61
+                },
+                {
+                  "x": 117,
+                  "y": 54
+                }
+              ],
+              "text": "6"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_7"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 34,
+                  "y": 63
+                },
+                {
+                  "x": 49,
+                  "y": 56
+                },
+                {
+                  "x": 65,
+                  "y": 63
+                },
+                {
+                  "x": 65,
+                  "y": 81
+                },
+                {
+                  "x": 49,
+                  "y": 88
+                },
+                {
+                  "x": 34,
+                  "y": 81
+                }
+              ],
+              "text": "7"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_8"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 67,
+                  "y": 63
+                },
+                {
+                  "x": 82,
+                  "y": 56
+                },
+                {
+                  "x": 98,
+                  "y": 63
+                },
+                {
+                  "x": 98,
+                  "y": 81
+                },
+                {
+                  "x": 82,
+                  "y": 88
+                },
+                {
+                  "x": 67,
+                  "y": 81
+                }
+              ],
+              "text": "8"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_9"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 100,
+                  "y": 63
+                },
+                {
+                  "x": 115,
+                  "y": 56
+                },
+                {
+                  "x": 131,
+                  "y": 63
+                },
+                {
+                  "x": 131,
+                  "y": 81
+                },
+                {
+                  "x": 115,
+                  "y": 88
+                },
+                {
+                  "x": 100,
+                  "y": 81
+                }
+              ],
+              "text": "9"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_A"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 249,
+                  "y": 90
+                },
+                {
+                  "x": 264,
+                  "y": 83
+                },
+                {
+                  "x": 280,
+                  "y": 90
+                },
+                {
+                  "x": 280,
+                  "y": 108
+                },
+                {
+                  "x": 264,
+                  "y": 115
+                },
+                {
+                  "x": 249,
+                  "y": 108
+                }
+              ],
+              "text": "a"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_B"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 331,
+                  "y": 63
+                },
+                {
+                  "x": 346,
+                  "y": 56
+                },
+                {
+                  "x": 362,
+                  "y": 63
+                },
+                {
+                  "x": 362,
+                  "y": 81
+                },
+                {
+                  "x": 346,
+                  "y": 88
+                },
+                {
+                  "x": 331,
+                  "y": 81
+                }
+              ],
+              "text": "b"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_C"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 150,
+                  "y": 36
+                },
+                {
+                  "x": 165,
+                  "y": 29
+                },
+                {
+                  "x": 181,
+                  "y": 36
+                },
+                {
+                  "x": 181,
+                  "y": 54
+                },
+                {
+                  "x": 165,
+                  "y": 61
+                },
+                {
+                  "x": 150,
+                  "y": 54
+                }
+              ],
+              "text": "c"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_D"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 282,
+                  "y": 90
+                },
+                {
+                  "x": 297,
+                  "y": 83
+                },
+                {
+                  "x": 313,
+                  "y": 90
+                },
+                {
+                  "x": 313,
+                  "y": 108
+                },
+                {
+                  "x": 297,
+                  "y": 115
+                },
+                {
+                  "x": 282,
+                  "y": 108
+                }
+              ],
+              "text": "d"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_E"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 199,
+                  "y": 63
+                },
+                {
+                  "x": 214,
+                  "y": 56
+                },
+                {
+                  "x": 230,
+                  "y": 63
+                },
+                {
+                  "x": 230,
+                  "y": 81
+                },
+                {
+                  "x": 214,
+                  "y": 88
+                },
+                {
+                  "x": 199,
+                  "y": 81
+                }
+              ],
+              "text": "e"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_F"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 282,
+                  "y": 36
+                },
+                {
+                  "x": 297,
+                  "y": 29
+                },
+                {
+                  "x": 313,
+                  "y": 36
+                },
+                {
+                  "x": 313,
+                  "y": 54
+                },
+                {
+                  "x": 297,
+                  "y": 61
+                },
+                {
+                  "x": 282,
+                  "y": 54
+                }
+              ],
+              "text": "f"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_G"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 298,
+                  "y": 63
+                },
+                {
+                  "x": 313,
+                  "y": 56
+                },
+                {
+                  "x": 329,
+                  "y": 63
+                },
+                {
+                  "x": 329,
+                  "y": 81
+                },
+                {
+                  "x": 313,
+                  "y": 88
+                },
+                {
+                  "x": 298,
+                  "y": 81
+                }
+              ],
+              "text": "g"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_H"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 183,
+                  "y": 36
+                },
+                {
+                  "x": 198,
+                  "y": 29
+                },
+                {
+                  "x": 214,
+                  "y": 36
+                },
+                {
+                  "x": 214,
+                  "y": 54
+                },
+                {
+                  "x": 198,
+                  "y": 61
+                },
+                {
+                  "x": 183,
+                  "y": 54
+                }
+              ],
+              "text": "h"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_I"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 166,
+                  "y": 63
+                },
+                {
+                  "x": 181,
+                  "y": 56
+                },
+                {
+                  "x": 197,
+                  "y": 63
+                },
+                {
+                  "x": 197,
+                  "y": 81
+                },
+                {
+                  "x": 181,
+                  "y": 88
+                },
+                {
+                  "x": 166,
+                  "y": 81
+                }
+              ],
+              "text": "i"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_J"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 133,
+                  "y": 63
+                },
+                {
+                  "x": 148,
+                  "y": 56
+                },
+                {
+                  "x": 164,
+                  "y": 63
+                },
+                {
+                  "x": 164,
+                  "y": 81
+                },
+                {
+                  "x": 148,
+                  "y": 88
+                },
+                {
+                  "x": 133,
+                  "y": 81
+                }
+              ],
+              "text": "j"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_K"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 166,
+                  "y": 9
+                },
+                {
+                  "x": 181,
+                  "y": 2
+                },
+                {
+                  "x": 197,
+                  "y": 9
+                },
+                {
+                  "x": 197,
+                  "y": 27
+                },
+                {
+                  "x": 181,
+                  "y": 34
+                },
+                {
+                  "x": 166,
+                  "y": 27
+                }
+              ],
+              "text": "k"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_L"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 232,
+                  "y": 117
+                },
+                {
+                  "x": 247,
+                  "y": 110
+                },
+                {
+                  "x": 263,
+                  "y": 117
+                },
+                {
+                  "x": 263,
+                  "y": 135
+                },
+                {
+                  "x": 247,
+                  "y": 142
+                },
+                {
+                  "x": 232,
+                  "y": 135
+                }
+              ],
+              "text": "l"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_M"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 232,
+                  "y": 9
+                },
+                {
+                  "x": 247,
+                  "y": 2
+                },
+                {
+                  "x": 263,
+                  "y": 9
+                },
+                {
+                  "x": 263,
+                  "y": 27
+                },
+                {
+                  "x": 247,
+                  "y": 34
+                },
+                {
+                  "x": 232,
+                  "y": 27
+                }
+              ],
+              "text": "m"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_N"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 265,
+                  "y": 63
+                },
+                {
+                  "x": 280,
+                  "y": 56
+                },
+                {
+                  "x": 296,
+                  "y": 63
+                },
+                {
+                  "x": 296,
+                  "y": 81
+                },
+                {
+                  "x": 280,
+                  "y": 88
+                },
+                {
+                  "x": 265,
+                  "y": 81
+                }
+              ],
+              "text": "n"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_O"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 249,
+                  "y": 36
+                },
+                {
+                  "x": 264,
+                  "y": 29
+                },
+                {
+                  "x": 280,
+                  "y": 36
+                },
+                {
+                  "x": 280,
+                  "y": 54
+                },
+                {
+                  "x": 264,
+                  "y": 61
+                },
+                {
+                  "x": 249,
+                  "y": 54
+                }
+              ],
+              "text": "o"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_P"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 199,
+                  "y": 117
+                },
+                {
+                  "x": 214,
+                  "y": 110
+                },
+                {
+                  "x": 230,
+                  "y": 117
+                },
+                {
+                  "x": 230,
+                  "y": 135
+                },
+                {
+                  "x": 214,
+                  "y": 142
+                },
+                {
+                  "x": 199,
+                  "y": 135
+                }
+              ],
+              "text": "p"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_Q"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 298,
+                  "y": 9
+                },
+                {
+                  "x": 313,
+                  "y": 2
+                },
+                {
+                  "x": 329,
+                  "y": 9
+                },
+                {
+                  "x": 329,
+                  "y": 27
+                },
+                {
+                  "x": 313,
+                  "y": 34
+                },
+                {
+                  "x": 298,
+                  "y": 27
+                }
+              ],
+              "text": "q"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_R"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 183,
+                  "y": 90
+                },
+                {
+                  "x": 198,
+                  "y": 83
+                },
+                {
+                  "x": 214,
+                  "y": 90
+                },
+                {
+                  "x": 214,
+                  "y": 108
+                },
+                {
+                  "x": 198,
+                  "y": 115
+                },
+                {
+                  "x": 183,
+                  "y": 108
+                }
+              ],
+              "text": "r"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_S"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 216,
+                  "y": 90
+                },
+                {
+                  "x": 231,
+                  "y": 83
+                },
+                {
+                  "x": 247,
+                  "y": 90
+                },
+                {
+                  "x": 247,
+                  "y": 108
+                },
+                {
+                  "x": 231,
+                  "y": 115
+                },
+                {
+                  "x": 216,
+                  "y": 108
+                }
+              ],
+              "text": "s"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_T"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 216,
+                  "y": 36
+                },
+                {
+                  "x": 231,
+                  "y": 29
+                },
+                {
+                  "x": 247,
+                  "y": 36
+                },
+                {
+                  "x": 247,
+                  "y": 54
+                },
+                {
+                  "x": 231,
+                  "y": 61
+                },
+                {
+                  "x": 216,
+                  "y": 54
+                }
+              ],
+              "text": "t"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_U"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 265,
+                  "y": 9
+                },
+                {
+                  "x": 280,
+                  "y": 2
+                },
+                {
+                  "x": 296,
+                  "y": 9
+                },
+                {
+                  "x": 296,
+                  "y": 27
+                },
+                {
+                  "x": 280,
+                  "y": 34
+                },
+                {
+                  "x": 265,
+                  "y": 27
+                }
+              ],
+              "text": "u"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_V"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 150,
+                  "y": 90
+                },
+                {
+                  "x": 165,
+                  "y": 83
+                },
+                {
+                  "x": 181,
+                  "y": 90
+                },
+                {
+                  "x": 181,
+                  "y": 108
+                },
+                {
+                  "x": 165,
+                  "y": 115
+                },
+                {
+                  "x": 150,
+                  "y": 108
+                }
+              ],
+              "text": "v"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_W"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 199,
+                  "y": 9
+                },
+                {
+                  "x": 214,
+                  "y": 2
+                },
+                {
+                  "x": 230,
+                  "y": 9
+                },
+                {
+                  "x": 230,
+                  "y": 27
+                },
+                {
+                  "x": 214,
+                  "y": 34
+                },
+                {
+                  "x": 199,
+                  "y": 27
+                }
+              ],
+              "text": "w"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_X"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 166,
+                  "y": 117
+                },
+                {
+                  "x": 181,
+                  "y": 110
+                },
+                {
+                  "x": 197,
+                  "y": 117
+                },
+                {
+                  "x": 197,
+                  "y": 135
+                },
+                {
+                  "x": 181,
+                  "y": 142
+                },
+                {
+                  "x": 166,
+                  "y": 135
+                }
+              ],
+              "text": "x"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_Y"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 265,
+                  "y": 117
+                },
+                {
+                  "x": 280,
+                  "y": 110
+                },
+                {
+                  "x": 296,
+                  "y": 117
+                },
+                {
+                  "x": 296,
+                  "y": 135
+                },
+                {
+                  "x": 280,
+                  "y": 142
+                },
+                {
+                  "x": 265,
+                  "y": 135
+                }
+              ],
+              "text": "y"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_Z"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 315,
+                  "y": 36
+                },
+                {
+                  "x": 330,
+                  "y": 29
+                },
+                {
+                  "x": 346,
+                  "y": 36
+                },
+                {
+                  "x": 346,
+                  "y": 54
+                },
+                {
+                  "x": 330,
+                  "y": 61
+                },
+                {
+                  "x": 315,
+                  "y": 54
+                }
+              ],
+              "text": "z"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_LWIN"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 100,
+                  "y": 117
+                },
+                {
+                  "x": 115,
+                  "y": 110
+                },
+                {
+                  "x": 131,
+                  "y": 117
+                },
+                {
+                  "x": 131,
+                  "y": 135
+                },
+                {
+                  "x": 115,
+                  "y": 142
+                },
+                {
+                  "x": 100,
+                  "y": 135
+                }
+              ],
+              "text": "Win"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_MENU"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 430,
+                  "y": 117
+                },
+                {
+                  "x": 445,
+                  "y": 110
+                },
+                {
+                  "x": 461,
+                  "y": 117
+                },
+                {
+                  "x": 461,
+                  "y": 135
+                },
+                {
+                  "x": 445,
+                  "y": 142
+                },
+                {
+                  "x": 430,
+                  "y": 135
+                }
+              ],
+              "text": "menu"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_SHIFT"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 133,
+                  "y": 117
+                },
+                {
+                  "x": 148,
+                  "y": 110
+                },
+                {
+                  "x": 164,
+                  "y": 117
+                },
+                {
+                  "x": 164,
+                  "y": 135
+                },
+                {
+                  "x": 148,
+                  "y": 142
+                },
+                {
+                  "x": 133,
+                  "y": 135
+                }
+              ],
+              "text": "Shift"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_LCONTROL"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 67,
+                  "y": 117
+                },
+                {
+                  "x": 82,
+                  "y": 110
+                },
+                {
+                  "x": 98,
+                  "y": 117
+                },
+                {
+                  "x": 98,
+                  "y": 135
+                },
+                {
+                  "x": 82,
+                  "y": 142
+                },
+                {
+                  "x": 67,
+                  "y": 135
+                }
+              ],
+              "text": "Ctrl"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_ALT"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 397,
+                  "y": 117
+                },
+                {
+                  "x": 412,
+                  "y": 110
+                },
+                {
+                  "x": 428,
+                  "y": 117
+                },
+                {
+                  "x": 428,
+                  "y": 135
+                },
+                {
+                  "x": 412,
+                  "y": 142
+                },
+                {
+                  "x": 397,
+                  "y": 135
+                }
+              ],
+              "text": "Alt"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_A"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 462,
+                  "y": 116
+                },
+                {
+                  "x": 477,
+                  "y": 109
+                },
+                {
+                  "x": 493,
+                  "y": 116
+                },
+                {
+                  "x": 493,
+                  "y": 134
+                },
+                {
+                  "x": 477,
+                  "y": 141
+                },
+                {
+                  "x": 462,
+                  "y": 134
+                }
+              ],
+              "text": "11"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_A"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 446,
+                  "y": 36
+                },
+                {
+                  "x": 461,
+                  "y": 29
+                },
+                {
+                  "x": 477,
+                  "y": 36
+                },
+                {
+                  "x": 477,
+                  "y": 54
+                },
+                {
+                  "x": 461,
+                  "y": 61
+                },
+                {
+                  "x": 446,
+                  "y": 54
+                }
+              ],
+              "text": "22"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_SEMICOLON"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 51,
+                  "y": 90
+                },
+                {
+                  "x": 66,
+                  "y": 83
+                },
+                {
+                  "x": 82,
+                  "y": 90
+                },
+                {
+                  "x": 82,
+                  "y": 108
+                },
+                {
+                  "x": 66,
+                  "y": 115
+                },
+                {
+                  "x": 51,
+                  "y": 108
+                }
+              ],
+              "text": ";"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_EQUALS"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 364,
+                  "y": 9
+                },
+                {
+                  "x": 379,
+                  "y": 2
+                },
+                {
+                  "x": 395,
+                  "y": 9
+                },
+                {
+                  "x": 395,
+                  "y": 27
+                },
+                {
+                  "x": 379,
+                  "y": 34
+                },
+                {
+                  "x": 364,
+                  "y": 27
+                }
+              ],
+              "text": "="
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_COMMA"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 84,
+                  "y": 90
+                },
+                {
+                  "x": 99,
+                  "y": 83
+                },
+                {
+                  "x": 115,
+                  "y": 90
+                },
+                {
+                  "x": 115,
+                  "y": 108
+                },
+                {
+                  "x": 99,
+                  "y": 115
+                },
+                {
+                  "x": 84,
+                  "y": 108
+                }
+              ],
+              "text": ","
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_DASH"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 331,
+                  "y": 9
+                },
+                {
+                  "x": 346,
+                  "y": 2
+                },
+                {
+                  "x": 362,
+                  "y": 9
+                },
+                {
+                  "x": 362,
+                  "y": 27
+                },
+                {
+                  "x": 346,
+                  "y": 34
+                },
+                {
+                  "x": 331,
+                  "y": 27
+                }
+              ],
+              "text": "-"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_PERIOD"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 117,
+                  "y": 90
+                },
+                {
+                  "x": 132,
+                  "y": 83
+                },
+                {
+                  "x": 148,
+                  "y": 90
+                },
+                {
+                  "x": 148,
+                  "y": 108
+                },
+                {
+                  "x": 132,
+                  "y": 115
+                },
+                {
+                  "x": 117,
+                  "y": 108
+                }
+              ],
+              "text": "."
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_SLASH"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 397,
+                  "y": 63
+                },
+                {
+                  "x": 412,
+                  "y": 56
+                },
+                {
+                  "x": 428,
+                  "y": 63
+                },
+                {
+                  "x": 428,
+                  "y": 81
+                },
+                {
+                  "x": 412,
+                  "y": 88
+                },
+                {
+                  "x": 397,
+                  "y": 81
+                }
+              ],
+              "text": "/"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_GRAVE"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 34,
+                  "y": 9
+                },
+                {
+                  "x": 49,
+                  "y": 2
+                },
+                {
+                  "x": 65,
+                  "y": 9
+                },
+                {
+                  "x": 65,
+                  "y": 27
+                },
+                {
+                  "x": 49,
+                  "y": 34
+                },
+                {
+                  "x": 34,
+                  "y": 27
+                }
+              ],
+              "text": "`"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_A"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 486,
+                  "y": 2
+                },
+                {
+                  "x": 518,
+                  "y": 2
+                },
+                {
+                  "x": 518,
+                  "y": 24
+                },
+                {
+                  "x": 486,
+                  "y": 24
+                }
+              ],
+              "text": "X"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_A"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 502,
+                  "y": 43
+                },
+                {
+                  "x": 518,
+                  "y": 43
+                },
+                {
+                  "x": 518,
+                  "y": 59
+                },
+                {
+                  "x": 502,
+                  "y": 59
+                }
+              ],
+              "text": "NL"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_A"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 463,
+                  "y": 63
+                },
+                {
+                  "x": 478,
+                  "y": 56
+                },
+                {
+                  "x": 494,
+                  "y": 63
+                },
+                {
+                  "x": 494,
+                  "y": 81
+                },
+                {
+                  "x": 478,
+                  "y": 88
+                },
+                {
+                  "x": 463,
+                  "y": 81
+                }
+              ],
+              "text": "66"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_A"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 502,
+                  "y": 27
+                },
+                {
+                  "x": 518,
+                  "y": 27
+                },
+                {
+                  "x": 518,
+                  "y": 43
+                },
+                {
+                  "x": 502,
+                  "y": 43
+                }
+              ],
+              "text": ""
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_LEFT_BRACKET"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 348,
+                  "y": 36
+                },
+                {
+                  "x": 363,
+                  "y": 29
+                },
+                {
+                  "x": 379,
+                  "y": 36
+                },
+                {
+                  "x": 379,
+                  "y": 54
+                },
+                {
+                  "x": 363,
+                  "y": 61
+                },
+                {
+                  "x": 348,
+                  "y": 54
+                }
+              ],
+              "text": "["
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_BACKSLASH"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 414,
+                  "y": 90
+                },
+                {
+                  "x": 429,
+                  "y": 83
+                },
+                {
+                  "x": 445,
+                  "y": 90
+                },
+                {
+                  "x": 445,
+                  "y": 108
+                },
+                {
+                  "x": 429,
+                  "y": 115
+                },
+                {
+                  "x": 414,
+                  "y": 108
+                }
+              ],
+              "text": "\\"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_RIGHT_BRACKET"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 381,
+                  "y": 36
+                },
+                {
+                  "x": 396,
+                  "y": 29
+                },
+                {
+                  "x": 412,
+                  "y": 36
+                },
+                {
+                  "x": 412,
+                  "y": 54
+                },
+                {
+                  "x": 396,
+                  "y": 61
+                },
+                {
+                  "x": 381,
+                  "y": 54
+                }
+              ],
+              "text": "]"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_APOSTROPHE"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 34,
+                  "y": 117
+                },
+                {
+                  "x": 49,
+                  "y": 110
+                },
+                {
+                  "x": 65,
+                  "y": 117
+                },
+                {
+                  "x": 65,
+                  "y": 135
+                },
+                {
+                  "x": 49,
+                  "y": 142
+                },
+                {
+                  "x": 34,
+                  "y": 135
+                }
+              ],
+              "text": "'"
+            },
+            {
+              "clickAction": {
+                "$type": "Typo.KeyPressAction",
+                "key": "KEY_A"
+              },
+              "actionOnClick": true,
+              "vertices": [
+                {
+                  "x": 1,
+                  "y": 117
+                },
+                {
+                  "x": 16,
+                  "y": 110
+                },
+                {
+                  "x": 32,
+                  "y": 117
+                },
+                {
+                  "x": 32,
+                  "y": 135
+                },
+                {
+                  "x": 16,
+                  "y": 142
+                },
+                {
+                  "x": 1,
+                  "y": 135
+                }
+              ],
+              "text": "fn"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

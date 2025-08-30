@@ -1,6 +1,6 @@
 #if _OSX
 
-namespace CrossPlatformApp.MacOS;
+namespace Typo.MacOS;
 
 using System;
 using System.Runtime.InteropServices;
