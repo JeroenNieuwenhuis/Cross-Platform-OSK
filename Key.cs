@@ -57,7 +57,6 @@ public class Key : Polygon
     public string? argbHoverClickColor { get; set; }
 
     private Canvas? _canvas;
-    private IBrush? _previousColor;
     private bool _isHovered = false;
     private bool _isPressed = false;
     
@@ -70,7 +69,7 @@ public class Key : Polygon
             IsHitTestVisible = true;
             
             // Ensure Points are synced with Vertices after deserialization
-            if (vertices.Count > 2)
+            if (vertices is { Count: > 2 })
             {
                 Points = new Points(vertices);
             }
@@ -176,6 +175,7 @@ public class Key : Polygon
         if (actionOnClick == true)
         {
             clickAction?.Stop();
+            ActionCoordinator.GetInstance().NotifyActionCompleted(clickAction);
         }
         else
         {
@@ -183,6 +183,7 @@ public class Key : Polygon
             DispatcherTimer.RunOnce(() =>
             {
                 clickAction?.Stop();
+                ActionCoordinator.GetInstance().NotifyActionCompleted(clickAction);
             }, TimeSpan.FromMilliseconds(25));
         }
     }

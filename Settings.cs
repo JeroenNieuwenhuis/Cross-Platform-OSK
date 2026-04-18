@@ -33,7 +33,10 @@ public class Settings
         {
             KnownTypes = new List<Type>
             {
-                typeof(KeyPressAction)
+                typeof(KeyPressAction),
+                typeof(ToggleAction),
+                typeof(TapKeyAction),
+                typeof(CommandAction)
                 // Add all IAction implementations here
             }
         };
@@ -58,14 +61,16 @@ public class Settings
         {
             KnownTypes = new List<Type>
             {
-                typeof(KeyPressAction)
+                typeof(KeyPressAction),
+                typeof(ToggleAction),
+                typeof(TapKeyAction),
+                typeof(CommandAction)
                 // Add all IAction implementations here
             }
         };
         
         var settings = JsonConvert.DeserializeObject<Settings>(json, jsonSettings);
-        //settings.Initialize(); // Call post-deserialization logic
-        return settings;
+        return settings ?? throw new InvalidOperationException($"Failed to deserialize settings from '{filePath}'.");
     }
     
     private static string GetBaseDirectory()
@@ -98,14 +103,15 @@ public class Settings
     }
     private class KnownTypesBinder : ISerializationBinder
     {
-        public IList<Type> KnownTypes { get; set; }
+        public IList<Type> KnownTypes { get; set; } = new List<Type>();
 
-        public Type BindToType(string assemblyName, string typeName)
+        public Type BindToType(string? assemblyName, string typeName)
         {
-            return KnownTypes?.FirstOrDefault(t => t.FullName == typeName);
+            return KnownTypes.FirstOrDefault(t => t.FullName == typeName)
+                ?? throw new JsonSerializationException($"Unknown serialized type '{typeName}'.");
         }
 
-        public void BindToName(Type serializedType, out string assemblyName, out string typeName)
+        public void BindToName(Type serializedType, out string? assemblyName, out string? typeName)
         {
             assemblyName = null;
             typeName = serializedType.FullName;

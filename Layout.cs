@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Avalonia.Threading;
 using Newtonsoft.Json;
-using Typo.Windows;
 
 namespace Typo;
 

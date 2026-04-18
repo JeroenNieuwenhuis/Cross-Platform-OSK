@@ -6,7 +6,7 @@ namespace Typo;
 
 public partial class App : Application
 {
-    private Settings settings;
+    private Settings? settings;
     
     public override void Initialize()
     {

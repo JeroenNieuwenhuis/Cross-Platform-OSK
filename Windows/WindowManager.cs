@@ -1,17 +1,12 @@
-using System.ComponentModel;
-using System.Text;
-using System.Threading;
-using Avalonia.Controls;
-using Avalonia.Threading;
-using Tmds.DBus.Protocol;
-using Typo;
-
 #if _WINDOWS
 
 namespace Typo.Windows;
 
 using System;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
+using Avalonia.Controls;
+using Avalonia.Threading;
 
 public class WindowManager : IWindowManagerInterface
 {

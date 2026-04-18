@@ -2,8 +2,6 @@ using System;
 using System.Runtime.InteropServices;
 using Avalonia.Controls;
 using Avalonia.Platform;
-using Typo.Windows;
-
 
 namespace Typo;
 

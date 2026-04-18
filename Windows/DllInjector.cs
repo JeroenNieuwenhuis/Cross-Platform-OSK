@@ -8,8 +8,10 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using System.Text;
 
+[SupportedOSPlatform("windows")]
 public static class Injector
 {
     #region WinAPI Structs and Constants
@@ -84,7 +86,7 @@ public static class Injector
     [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Auto)]
     [return: MarshalAs(UnmanagedType.Bool)]
     private static extern bool LookupPrivilegeValue(
-        string lpSystemName,
+        string? lpSystemName,
         string lpName,
         out LUID lpLuid);
 
@@ -328,7 +330,13 @@ public static class Injector
         {
             try
             {
-                string moduleName = Path.GetFileName(process.MainModule.FileName);
+                string? moduleFileName = process.MainModule?.FileName;
+                if (string.IsNullOrEmpty(moduleFileName))
+                {
+                    continue;
+                }
+
+                string moduleName = Path.GetFileName(moduleFileName);
                 if (moduleName.Equals(processName, StringComparison.OrdinalIgnoreCase))
                 {
                     return process.Id;

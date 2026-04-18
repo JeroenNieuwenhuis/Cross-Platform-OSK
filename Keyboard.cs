@@ -37,7 +37,7 @@ public class Keyboard : Window
     [JsonProperty] public string? keyArgbHoverColor { get; set; }
     [JsonProperty] public string? keyArgbHoverClickColor { get; set; }
     
-    private Canvas _canvas;
+    private Canvas? _canvas;
     private Key? _currentlyHoveredKey = null;
     private Key? _currentlyLeftPressedKey = null;
     private Key? _currentlyRightPressedKey = null;
@@ -166,6 +166,9 @@ public class Keyboard : Window
 
     private Key? GetKeyUnderPointer(PointerEventArgs e)
     {
+        if (_canvas == null)
+            return null;
+
         Point pointerPosition = e.GetPosition(_canvas);
 
         // InputHitTest directly gives you the IInputElement.
@@ -179,6 +182,9 @@ public class Keyboard : Window
 
     private void Canvas_PointerMoved(object? sender, PointerEventArgs e)
     {
+        if (_canvas == null)
+            return;
+
         bool leftPressed = e.GetCurrentPoint(_canvas).Properties.IsLeftButtonPressed;
         bool rightPressed = e.GetCurrentPoint(_canvas).Properties.IsLeftButtonPressed;
         
@@ -198,6 +204,9 @@ public class Keyboard : Window
     
     private void Canvas_PointerPressed(object? sender, PointerPressedEventArgs e)
     {
+        if (_canvas == null)
+            return;
+
         bool leftPressed = e.GetCurrentPoint(_canvas).Properties.IsLeftButtonPressed;
         bool rightPressed = e.GetCurrentPoint(_canvas).Properties.IsLeftButtonPressed;
         
@@ -208,6 +217,9 @@ public class Keyboard : Window
 
     private void Canvas_PointerReleased(object? sender, PointerReleasedEventArgs e)
     {
+        if (_canvas == null)
+            return;
+
         bool leftPressed = e.GetCurrentPoint(_canvas).Properties.IsLeftButtonPressed;
         bool rightPressed = e.GetCurrentPoint(_canvas).Properties.IsLeftButtonPressed;
         
