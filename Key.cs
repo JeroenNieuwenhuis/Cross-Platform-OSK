@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
+using Avalonia.Layout;
 using Avalonia.Media;
+using Avalonia.Media.Imaging;
 using Avalonia.Threading;
 using Newtonsoft.Json;
 
@@ -86,6 +89,15 @@ public class Key : Polygon
                 Fill = new SolidColorBrush(Color.Parse(argbBackgroundColor));
             }
 
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                var image = CreateImageControl(imagePath);
+                if (image != null)
+                {
+                    _canvas?.Children.Add(image);
+                }
+            }
+
             if (!string.IsNullOrEmpty(text))
             {
                 var textBlock = new TextBlock
@@ -143,6 +155,77 @@ public class Key : Polygon
         double maxY = vertices.Max(p => p.Y);
         return new Point(maxX, maxY); 
     }
+
+    private Control? CreateImageControl(string imagePathValue)
+    {
+        if (vertices is not { Count: > 2 })
+            return null;
+
+        string resolvedPath = ResolveImagePath(imagePathValue);
+        if (!File.Exists(resolvedPath))
+            return null;
+
+        Bitmap bitmap;
+        try
+        {
+            bitmap = new Bitmap(resolvedPath);
+        }
+        catch
+        {
+            return null;
+        }
+
+        Point topLeft = GetTopLeft();
+        Point bottomRight = GetBottomRight();
+        double boundsWidth = Math.Max(1, bottomRight.X - topLeft.X);
+        double boundsHeight = Math.Max(1, bottomRight.Y - topLeft.Y);
+        double horizontalPadding = Math.Min(4, boundsWidth * 0.15);
+        double verticalPadding = Math.Min(4, boundsHeight * 0.15);
+        double imageWidth = Math.Max(1, boundsWidth - (horizontalPadding * 2));
+        double imageHeight = Math.Max(1, boundsHeight - (verticalPadding * 2));
+        var image = new Image
+        {
+            Source = bitmap,
+            Width = imageWidth,
+            Height = imageHeight,
+            Stretch = Stretch.Uniform,
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center,
+            IsHitTestVisible = false
+        };
+
+        var container = new Grid
+        {
+            Width = boundsWidth,
+            Height = boundsHeight,
+            IsHitTestVisible = false,
+            Clip = CreateClipGeometry(topLeft)
+        };
+
+        container.Children.Add(image);
+        Canvas.SetLeft(container, topLeft.X);
+        Canvas.SetTop(container, topLeft.Y);
+        container.ZIndex = 1;
+
+        return container;
+    }
+
+    private string ResolveImagePath(string imagePathValue)
+    {
+        if (System.IO.Path.IsPathRooted(imagePathValue))
+            return imagePathValue;
+
+        return System.IO.Path.GetFullPath(System.IO.Path.Combine(AppContext.BaseDirectory, imagePathValue));
+    }
+
+    private Geometry CreateClipGeometry(Point topLeft)
+    {
+        string pathData = string.Join(" ",
+            vertices!.Select((point, index) =>
+                $"{(index == 0 ? "M" : "L")} {point.X - topLeft.X},{point.Y - topLeft.Y}")) + " Z";
+
+        return Geometry.Parse(pathData);
+    }
     
     public virtual void KeyEntered()
     {
@@ -184,6 +267,37 @@ public class Key : Polygon
             {
                 clickAction?.Stop();
                 ActionCoordinator.GetInstance().NotifyActionCompleted(clickAction);
+            }, TimeSpan.FromMilliseconds(25));
+        }
+    }
+
+    public virtual void KeyRightPressed()
+    {
+        _isPressed = true;
+        UpdateColor();
+        
+        if (actionOnClick == true)
+        {
+            rightClickAction?.Start();
+        }
+    }
+
+    public virtual void KeyRightReleased()
+    {
+        _isPressed = false;
+        UpdateColor();
+        if (actionOnClick == true)
+        {
+            rightClickAction?.Stop();
+            ActionCoordinator.GetInstance().NotifyActionCompleted(rightClickAction);
+        }
+        else
+        {
+            rightClickAction?.Start();
+            DispatcherTimer.RunOnce(() =>
+            {
+                rightClickAction?.Stop();
+                ActionCoordinator.GetInstance().NotifyActionCompleted(rightClickAction);
             }, TimeSpan.FromMilliseconds(25));
         }
     }

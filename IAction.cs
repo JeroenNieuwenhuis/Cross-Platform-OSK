@@ -1,11 +1,15 @@
 namespace Typo;
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
 public interface IAction
 {
     public void Start();
     public void Stop();
 }
 
+[JsonConverter(typeof(StringEnumConverter))]
 public enum ActionKind
 {
     NormalKey,
@@ -13,6 +17,7 @@ public enum ActionKind
     PersistentToggle
 }
 
+[JsonConverter(typeof(StringEnumConverter))]
 public enum LatchReleasePolicy
 {
     AfterNonModifier,

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
@@ -52,9 +53,7 @@ public class Keyboard : Window
     {
         Avalonia.Threading.Dispatcher.UIThread.Post(() =>
         {
-            // Hide window bar
-            this.ExtendClientAreaToDecorationsHint = true;
-            this.ExtendClientAreaChromeHints = Avalonia.Platform.ExtendClientAreaChromeHints.NoChrome;
+            ConfigureWindowChrome();
             
             CanResize = false;
             _canvas = new Canvas();
@@ -96,6 +95,13 @@ public class Keyboard : Window
         });
     }
 
+    private void ConfigureWindowChrome()
+    {
+        SystemDecorations = SystemDecorations.None;
+        ExtendClientAreaToDecorationsHint = true;
+        ExtendClientAreaChromeHints = Avalonia.Platform.ExtendClientAreaChromeHints.NoChrome;
+    }
+
     private void PointerUpdate(Key? hitKey, bool leftPressed, bool rightPressed)
     {
         if (_leftPressed != leftPressed)
@@ -107,51 +113,25 @@ public class Keyboard : Window
             }
             else
             {
-                hitKey?.KeyReleased();
+                _currentlyLeftPressedKey?.KeyReleased();
                 _currentlyLeftPressedKey = null;
             }
             _leftPressed = leftPressed;
-        }
-        
-        if (_currentlyLeftPressedKey != hitKey)
-        {
-            _currentlyLeftPressedKey?.KeyReleased();
-            _currentlyLeftPressedKey = hitKey;
-            if (leftPressed)
-            {
-                
-                if (hitKey is { actionOnClick: false })
-                {
-                    hitKey?.KeyPressed();
-                }
-            }
         }
         
         if (_rightPressed != rightPressed)
         {
             if (rightPressed)
             {
-                //hitKey?.KeyPressed();
+                hitKey?.KeyRightPressed();
                 _currentlyRightPressedKey = hitKey;
             }
             else
             {
-                //hitKey?.KeyReleased();
+                _currentlyRightPressedKey?.KeyRightReleased();
                 _currentlyRightPressedKey = null;
             }
             _rightPressed = rightPressed;
-        }
-
-        if (_currentlyRightPressedKey != hitKey)
-        {
-            if (rightPressed)
-            {
-                //_currentlyRightPressedKey?.KeyReleased();
-                if (_currentlyRightPressedKey is { actionOnClick: false })
-                {
-                    //_currentlyRightPressedKey.KeyPressed();
-                }
-            }
         }
         
         if (_currentlyHoveredKey != hitKey)
@@ -171,9 +151,8 @@ public class Keyboard : Window
 
         Point pointerPosition = e.GetPosition(_canvas);
 
-        // InputHitTest directly gives you the IInputElement.
-        // It considers IsHitTestVisible and Z-order.
         var hitElement = _canvas.GetVisualsAt(pointerPosition)
+            .SelectMany(visual => visual.GetSelfAndVisualAncestors())
             .OfType<Key>()
             .FirstOrDefault();
 
@@ -186,7 +165,7 @@ public class Keyboard : Window
             return;
 
         bool leftPressed = e.GetCurrentPoint(_canvas).Properties.IsLeftButtonPressed;
-        bool rightPressed = e.GetCurrentPoint(_canvas).Properties.IsLeftButtonPressed;
+        bool rightPressed = e.GetCurrentPoint(_canvas).Properties.IsRightButtonPressed;
         
         Key? hitKey = GetKeyUnderPointer(e);
 
@@ -208,9 +187,16 @@ public class Keyboard : Window
             return;
 
         bool leftPressed = e.GetCurrentPoint(_canvas).Properties.IsLeftButtonPressed;
-        bool rightPressed = e.GetCurrentPoint(_canvas).Properties.IsLeftButtonPressed;
+        bool rightPressed = e.GetCurrentPoint(_canvas).Properties.IsRightButtonPressed;
         
         Key? hitKey = GetKeyUnderPointer(e);
+
+        if (leftPressed && hitKey == null)
+        {
+            BeginMoveDrag(e);
+            e.Handled = true;
+            return;
+        }
 
         PointerUpdate(hitKey, leftPressed, rightPressed);
     }
@@ -221,7 +207,7 @@ public class Keyboard : Window
             return;
 
         bool leftPressed = e.GetCurrentPoint(_canvas).Properties.IsLeftButtonPressed;
-        bool rightPressed = e.GetCurrentPoint(_canvas).Properties.IsLeftButtonPressed;
+        bool rightPressed = e.GetCurrentPoint(_canvas).Properties.IsRightButtonPressed;
         
         Key? hitKey = GetKeyUnderPointer(e);
 
